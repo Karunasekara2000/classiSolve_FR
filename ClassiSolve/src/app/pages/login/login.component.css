@@ -1,0 +1,103 @@
+.login-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.left-section {
+  flex: 1;
+  background-color: #9671f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-logo {
+  max-width: 200px;
+  width: 60%;
+}
+
+.right-section {
+  flex: 1;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.login-btn {
+  background-color: #9671f1;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.signup-link {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+}
+
+
+.error-message {
+  color: red;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+
+.right-section {
+  position: relative;
+  padding: 40px; /* adjust as needed */
+}
+
+/* Style for the success popup box */
+.success-popup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #28a745; /* A Bootstrap-like green color */
+  color: #ffffff;           /* White text */
+  padding: 12px 20px;
+  border-radius: 4px;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  /* Optionally add a fade-in or fade-out transition if desired */
+}
+

@@ -1,0 +1,23 @@
+
+.custom-header {
+  background-color: #e5d4ff !important; /* Soft light purple */
+  color: #333;
+  font-weight: 600;
+}
+
+input.form-control:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 0.2rem rgba(124, 58, 237, 0.25);
+}
+
+.input-group-text {
+  border-color: #ced4da;
+}
+
+table thead.custom-header th {
+  background-color: #9671f1 !important; /* light ClassiSolve purple */
+  color: #212529;
+  font-weight: 600;
+  text-align: center;
+  vertical-align: middle;
+}

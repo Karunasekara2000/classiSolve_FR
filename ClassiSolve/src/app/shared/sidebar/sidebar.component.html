@@ -1,0 +1,37 @@
+<aside class="sidebar d-flex flex-column p-3 bg-purple text-white" style="height: 100vh;">
+  <!-- Logo -->
+  <div class="mb-4 text-center">
+    <img src="../../../assets/images/logo1.png" alt="ClassiSolve Logo" class="logo" style="max-width: 100%; height: auto;" />
+  </div>
+
+  <hr class="sidebar-divider border-light" />
+
+  <!-- Navigation Links -->
+  <nav class="nav flex-column">
+    <a class="nav-link d-flex align-items-center text-white mb-2" routerLink="/dashboard" routerLinkActive="active">
+      <img src="assets/icons/dashboard.png" class="me-2 nav-icon" width="20" alt="Dashboard" />
+      Dashboard
+    </a>
+    <a class="nav-link d-flex align-items-center text-white mb-2" routerLink="/tickets" routerLinkActive="active">
+      <img src="assets/icons/ticket.png" class="me-2 nav-icon" width="20" alt="Tickets" />
+      Tickets
+    </a>
+    <a class="nav-link d-flex align-items-center text-white mb-2" routerLink="/assign-ticket" routerLinkActive="active">
+      <img src="assets/icons/user.png" class="me-2 nav-icon" width="20" alt="Assign" />
+      Assign Ticket
+    </a>
+    <a class="nav-link d-flex align-items-center text-white mb-2" routerLink="/employee-workspace" routerLinkActive="active">
+      <img src="assets/icons/workplace.png" class="me-2 nav-icon" width="20" alt="Assign" />
+      Employee Workspace
+    </a>
+  </nav>
+
+  <hr class="sidebar-divider border-light mt-3" />
+
+  <!-- Logout -->
+  <div class="mt-auto text-center">
+    <button class="btn btn-link text-danger fw-bold" (click)="logout()" style="text-decoration: none;">
+      <i class="bi bi-power"></i> Log out
+    </button>
+  </div>
+</aside>

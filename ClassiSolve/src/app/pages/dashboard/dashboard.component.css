@@ -1,0 +1,97 @@
+.dashboard-container {
+  display: flex;
+  gap: 20px;
+  padding: 30px;
+  background-color: #f8f9fa;
+  flex-wrap: wrap;
+}
+
+.card-section {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  flex: 1;
+  min-width: 280px;
+  max-width: 100%;
+}
+
+.section-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.stat-number {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.subsection-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.ticket-item, .assignee-item {
+  padding: 6px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.ticket-text {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.ticket-icon, .assignee-icon {
+  font-size: 18px;
+  color: #00a76f;
+  margin-right: 8px;
+}
+
+.status-badge {
+  background-color: #e6fff2;
+  color: #00a76f;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.recent-info p {
+  margin: 4px 0;
+}
+
+.view-all {
+  font-size: 13px;
+  text-decoration: none;
+  color: #00a76f;
+}
+
+.assignee-item {
+  transition: background-color 0.2s ease;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.assignee-item:hover {
+  background-color: #f8f9fa;
+}
+
+.assignee-item .assignee-icon {
+  font-size: 1.4rem;
+  color: #0d6efd;
+}
+
+.dashboard-header {
+  padding: 30px 30px 10px 30px;
+}
+
+.dashboard-title {
+  font-weight: 700;
+  font-size: 24px;
+  color: #343a40;
+  margin-bottom: 0;
+}

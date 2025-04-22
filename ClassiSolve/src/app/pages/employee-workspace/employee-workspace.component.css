@@ -1,0 +1,13 @@
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.table-purple {
+  background-color: #e9d9ff;
+  color: #4b0082;
+}
+
+.table th{
+  background-color: #6c4df4
+}

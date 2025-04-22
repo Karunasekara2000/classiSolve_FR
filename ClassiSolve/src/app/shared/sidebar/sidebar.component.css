@@ -1,0 +1,57 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #7950f2;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Navigation Links */
+.nav-link {
+  color: #fff !important;
+  margin-bottom: 12px;
+  font-weight: 500;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #6a40e0;
+  text-decoration: none;
+}
+
+.nav-link.active {
+  background-color: #5e35d6;
+}
+
+/* Logo */
+.logo {
+  width: 180px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Push logout to bottom with spacing */
+.mt-auto {
+  margin-top: auto !important;
+}
+
+.logout-container {
+  padding-top: 100px;
+text-align: center;
+}
+
+/* Nav Icon next to text */
+.nav-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  vertical-align: middle;
+  filter: brightness(0) invert(1);
+}
