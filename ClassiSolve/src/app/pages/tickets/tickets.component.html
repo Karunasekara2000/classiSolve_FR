@@ -1,17 +1,19 @@
 <div class="container py-4">
   <h3 class="mb-4 text-dark fw-bold">Support Tickets</h3>
-
-  <!-- Search bar -->
-  <div class="input-group mb-4">
-    <span class="input-group-text bg-light border-end-0">
-      <i class="bi bi-search"></i>
-    </span>
-    <input
-      type="text"
-      class="form-control border-start-0"
-      placeholder="Search by subject..."
-      [(ngModel)]="searchText"
-    />
+  <div class="row mb-4">
+    <div class="col-md-9">
+      <div class="input-group">
+      <span class="input-group-text bg-light border-end-0">
+        <i class="bi bi-search"></i>
+      </span>
+        <input
+          type="text"
+          class="form-control border-start-0"
+          placeholder="Search by priority,category or status..."
+          [(ngModel)]="searchText"
+        />
+      </div>
+    </div>
   </div>
 
   <!-- Ticket Table -->
@@ -20,25 +22,32 @@
       <thead class="custom-header text-center">
       <tr>
         <th scope="col">Ticket ID</th>
-<!--        <th scope="col">Subject</th>-->
+        <!--        <th scope="col">Subject</th>-->
         <th scope="col">Description</th>
         <th scope="col">Priority</th>
-        <th scope="col">Type</th>
+        <th scope="col">Predicted Ticket Category</th>
         <th scope="col">Channel</th>
-        <th scope="col">Product</th>
-        <th scope="col">Resolution Time (hrs)</th>
+        <!--        <th scope="col">Product</th>-->
+        <th scope="col">Predicted Resolution Time (hrs)</th>
+        <th scope="col">Status</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let ticket of filteredTickets()" class="text-center">
-        <td>{{ ticket.id }}</td>
-<!--        <td>{{ ticket['Ticket Subject'] }}</td>-->
+        <td>{{ ticket.frontendId }}</td>
+        <!--        <td>{{ ticket['Ticket Subject'] }}</td>-->
         <td class="text-start">{{ ticket['Ticket Description'] }}</td>
         <td>{{ ticket['Ticket Priority'] }}</td>
         <td>{{ ticket['Predicted Ticket Type'] }}</td>
         <td>{{ ticket['Ticket Channel'] }}</td>
-        <td>{{ ticket['Product Purchased'] }}</td>
+        <!--        <td>{{ ticket['Product Purchased'] }}</td>-->
         <td>{{ ticket['Predicted Resolution Time (hrs)'] }}</td>
+        <td>
+  <span [ngClass]="getStatusClass(ticket.id)" class="d-inline-block text-center text-white rounded-pill"
+        style="width: 100px; padding: 6px 0">
+    {{ ticketStatuses[ticket.id] }}
+  </span>
+        </td>
       </tr>
       </tbody>
     </table>

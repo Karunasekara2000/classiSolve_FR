@@ -21,21 +21,48 @@
       <thead class="table-purple">
       <tr>
         <th>Ticket ID</th>
-        <th>Ticket Subject</th>
+        <th>Predicted Ticket Category</th>
+        <th>Submitter Name</th>
+        <th>Submitter Email</th>
+        <th>Predicted Resolution Time (hrs)</th>
         <th>Assigned Date</th>
+        <th>Status</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngIf="selectedEmployeeId === null">
-        <td colspan="3" class="text-center text-muted">Please select an employee to view assigned tickets.</td>
+        <td colspan="5" class="text-center text-muted">Please select an employee to view assigned tickets.</td>
       </tr>
       <tr *ngIf="selectedEmployeeId !== null && assignedTickets.length === 0">
-        <td colspan="3" class="text-center text-muted">No tickets assigned to this employee yet.</td>
+        <td colspan="5" class="text-center text-muted">No tickets assigned to this employee yet.</td>
       </tr>
       <tr *ngFor="let ticket of assignedTickets">
         <td>{{ ticket.ticketId }}</td>
         <td>{{ ticket.ticketSubject }}</td>
-        <td>{{ ticket.assignedAt | date:'short' }}</td>
+        <td>{{ ticket.customerName }}</td>
+        <td>{{ ticket.customerEmail }}</td>
+        <td>{{ ticket.resolutionTime }}</td>
+        <td>{{ ticket.assignedAt | date:'yyyy-MM-dd' }}</td>
+        <td class="position-relative">
+          <div class="dropdown">
+            <button
+              class="btn btn-sm dropdown-toggle px-3 py-1 rounded-pill text-white"
+              [ngClass]="getStatusClass(ticketStatuses[ticket.ticketId])"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              {{ ticketStatuses[ticket.ticketId] || 'Open' }}
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end mt-1 shadow-sm">
+              <li *ngFor="let status of statusOptions">
+                <a class="dropdown-item" href="#" (click)="setStatus(ticket.ticketId, status); $event.preventDefault()">
+                  {{ status }}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </td>
       </tr>
       </tbody>
     </table>

@@ -51,6 +51,8 @@ export class AssignTicketComponent implements OnInit {
       ticketSubject: ticket['Predicted Ticket Type'],
       ticketType: ticket['Predicted Ticket Type'],
       resolutionTime: ticket['Predicted Resolution Time (hrs)'],
+      customerName: ticket['Customer Name'],
+      customerEmail: ticket['Customer Email'],
       employeeId: assigneeId
     };
 
@@ -63,10 +65,25 @@ export class AssignTicketComponent implements OnInit {
     );
   }
 
+  // get filteredTickets() {
+  //   return this.tickets.filter(ticket =>
+  //     ticket['Predicted Ticket Type']?.toLowerCase().includes(this.searchText.toLowerCase())
+  //   );
+  // }
+
   get filteredTickets() {
-    return this.tickets.filter(ticket =>
-      ticket['Ticket Subject']?.toLowerCase().includes(this.searchText.toLowerCase())
-    );
+    const lowerSearch = this.searchText.toLowerCase();
+
+    return this.tickets.filter(ticket => {
+      const frontendId = ticket.frontendId;
+      const assigneeId = this.selectedAssignee[frontendId];
+      const assigneeList = this.assignees[frontendId] || [];
+
+      const selectedAssignee = assigneeList.find(emp => emp.id === assigneeId);
+      const assigneeName = selectedAssignee?.name?.toLowerCase() || '';
+
+      return assigneeName.includes(lowerSearch);
+    });
   }
 
   testClick() {

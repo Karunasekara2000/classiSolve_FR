@@ -20,12 +20,12 @@
 
   <!-- Assignee List -->
   <div class="card-section">
-    <h6 class="section-title">Available Assignees</h6>
-    <h2 class="stat-number">{{ assignees.length }}</h2>
+    <h6 class="section-title">All Assignees</h6>
+    <h2 class="stat-number">60</h2>
 
     <div class="d-flex justify-content-between align-items-center mb-2">
       <h6 class="subsection-title">Assignee List</h6>
-      <a href="#" class="view-all">View All</a>
+<!--      <a href="#" class="view-all">View All</a>-->
     </div>
 
     <div *ngFor="let emp of assignees" class="assignee-item d-flex align-items-center">
@@ -44,7 +44,7 @@
     <h6 class="section-title">Most Recent Ticket</h6>
     <div class="recent-info">
       <p><strong>User:</strong> {{ recentTicket.user }}</p>
-      <p><strong>Submitted:</strong> {{ recentTicket.submitted }}</p>
+<!--      <p><strong>Submitted:</strong> {{ recentTicket.submitted }}</p>-->
       <p><strong>Subject:</strong> {{ recentTicket.title }}</p>
       <p><strong>Ticket Issue:</strong><br />{{ recentTicket.issue }}</p>
     </div>

@@ -42,4 +42,16 @@ export class TicketService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.get<any[]>(`http://localhost:8080/tickets/assigned-tickets/${employeeId}`, { headers });
   }
+
+  updateTicketStatus(ticketId: number, status: string): Observable<any> {
+    const token = localStorage.getItem('accessToken');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.put(`http://localhost:8080/tickets/update-status/${ticketId}`, { status }, { headers });
+  }
+
+  getAllAssignedTickets(): Observable<any[]> {
+    const token = localStorage.getItem('accessToken');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<any[]>('http://localhost:8080/tickets/assign/tickets', { headers });
+  }
 }

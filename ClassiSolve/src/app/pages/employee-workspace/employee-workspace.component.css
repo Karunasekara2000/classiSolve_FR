@@ -9,5 +9,38 @@
 }
 
 .table th{
-  background-color: #6c4df4
+  background-color: #6c4df4;
+}
+
+
+.custom-dropdown-menu {
+  z-index: 1050;
+  min-width: 150px;
+  position: absolute;
+  top: 100%;
+  right: 0;
+}
+
+
+
+.table-responsive {
+  overflow-y: visible !important;
+  overflow-x: auto;
+  position: relative;
+}
+
+/* Make dropdown appear on top and outside table layout */
+.dropdown-menu {
+  z-index: 1055;
+  position: absolute;
+}
+
+
+/* Optional: tweak to remove ugly focus outlines */
+.dropdown-toggle:focus {
+  box-shadow: none !important;
+}
+
+.bg-orange {
+  background-color: #ea7643 !important;
 }

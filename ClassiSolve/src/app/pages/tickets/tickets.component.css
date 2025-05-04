@@ -21,3 +21,7 @@ table thead.custom-header th {
   text-align: center;
   vertical-align: middle;
 }
+
+.bg-orange {
+  background-color: #ea7643 !important;
+}

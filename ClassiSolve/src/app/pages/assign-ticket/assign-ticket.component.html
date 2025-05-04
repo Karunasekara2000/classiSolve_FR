@@ -5,7 +5,8 @@
       <span class="input-group-text bg-purple text-white">
         <i class="bi bi-search"></i>
       </span>
-      <input type="text" class="form-control" placeholder="Search by Ticket Subject..." [(ngModel)]="searchText">
+<!--      <input type="text" class="form-control" placeholder="Search by Predicted Ticket Category..." [(ngModel)]="searchText">-->
+      <input type="text" class="form-control" placeholder="Search by Assignee name.." [(ngModel)]="searchText">
     </div>
   </div>
 
@@ -15,8 +16,8 @@
       <tr>
         <th>Ticket ID</th>
 <!--        <th>Ticket Subject</th>-->
-        <th>Predicted Ticket Type</th>
-        <th>Resolution Time (hrs)</th>
+        <th>Predicted Ticket Category</th>
+        <th>Predicted Resolution Time (hrs)</th>
         <th>Assignee</th>
         <th>Action</th>
       </tr>
