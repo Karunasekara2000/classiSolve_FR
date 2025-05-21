@@ -13,7 +13,7 @@ export class LandingComponent {
   ngOnInit(): void {
     setTimeout(() => {
       this.router.navigate(['/login']);
-    }, 4000); // 4 seconds delay
+    }, 5000); // 5 seconds delay
   }
 
 }

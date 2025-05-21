@@ -29,18 +29,32 @@
         <td>{{ ticket['Predicted Ticket Type'] }}</td>
         <td>{{ ticket['Predicted Resolution Time (hrs)'] }}</td>
         <td>
-          <select class="form-select" [(ngModel)]="selectedAssignee[ticket.frontendId]">
+
+          <select class="form-select"
+                  [(ngModel)]="selectedAssignee[ticket.frontendId]"
+                  (change)="onAssigneeChange(ticket.frontendId)">
             <option *ngFor="let emp of assignees[ticket.frontendId]" [ngValue]="emp.id">
               {{ emp.name }}
             </option>
           </select>
+<!--          <select class="form-select" [(ngModel)]="selectedAssignee[ticket.frontendId]">-->
+<!--            <option *ngFor="let emp of assignees[ticket.frontendId]" [ngValue]="emp.id">-->
+<!--              {{ emp.name }}-->
+<!--            </option>-->
+<!--          </select>-->
         </td>
         <td>
           <button class="btn btn-outline-primary"
                   type="button"
+                  [disabled]="saveDisabled[ticket.frontendId]"
                   (click)="assign(ticket)">
             Save
           </button>
+<!--          <button class="btn btn-outline-primary"-->
+<!--                  type="button"-->
+<!--                  (click)="assign(ticket)">-->
+<!--            Save-->
+<!--          </button>-->
         </td>
       </tr>
       </tbody>

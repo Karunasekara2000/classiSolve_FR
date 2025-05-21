@@ -11,6 +11,7 @@ export class AssignTicketComponent implements OnInit {
   assignees: { [key: number]: any[] } = {};
   selectedAssignee: { [key: number]: number } = {};
   searchText: string = '';
+  saveDisabled: { [key: number]: boolean } = {};
 
   constructor(private ticketService: TicketService) {}
 
@@ -57,14 +58,19 @@ export class AssignTicketComponent implements OnInit {
     };
 
     this.ticketService.assignTicket(payload).subscribe(
-      () => alert(`Ticket "${ticket['Ticket Subject']}" assigned to ${assigneeId}!`),
+      () => {
+        this.saveDisabled[ticket.frontendId] = true;
+      },
       error => {
         console.error('Assignment failed:', error);
-        alert('Failed to assign ticket. Check server logs.');
+        // alert('Failed to assign ticket. Check server logs.');
       }
     );
   }
 
+  onAssigneeChange(ticketId: number): void {
+    this.saveDisabled[ticketId] = false;
+  }
   // get filteredTickets() {
   //   return this.tickets.filter(ticket =>
   //     ticket['Predicted Ticket Type']?.toLowerCase().includes(this.searchText.toLowerCase())
@@ -84,9 +90,5 @@ export class AssignTicketComponent implements OnInit {
 
       return assigneeName.includes(lowerSearch);
     });
-  }
-
-  testClick() {
-    console.log('Test click is working!');
   }
 }
