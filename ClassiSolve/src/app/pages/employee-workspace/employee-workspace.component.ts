@@ -28,25 +28,21 @@ export class EmployeeWorkspaceComponent implements OnInit {
 
     this.ticketService.getAssignedTicketsByEmployee(this.selectedEmployeeId).subscribe(
       data => {
-        // Update ticketStatuses map from backend values
+
         data.forEach(ticket => {
           this.ticketStatuses[ticket.ticketId] = ticket.status || 'Open';
         });
 
         // Sort so "Close" tickets go to the bottom
         this.assignedTickets = data.sort((a, b) => {
-          const statusA = a.status || 'Open';
-          const statusB = b.status || 'Open';
-
-          if (statusA === 'Close' && statusB !== 'Close') return 1;
-          if (statusA !== 'Close' && statusB === 'Close') return -1;
-          return 0;
+          const statusA = this.statusPriority[a.status || 'Open'] || 99;
+          const statusB = this.statusPriority[b.status || 'Open'] || 99;
+          return statusA - statusB;
         });
       },
       error => console.error('Error fetching assigned tickets:', error)
     );
   }
-
 
 
   toggleDropdown(ticketId: number): void {
@@ -55,20 +51,12 @@ export class EmployeeWorkspaceComponent implements OnInit {
 
 
 
-  // setStatus(ticketId: number, status: string): void {
-  //   this.ticketStatuses = { ...this.ticketStatuses, [ticketId]: status };
-  //
-  //
-  //   // Re-sort tickets: move 'Close' to bottom
-  //   this.assignedTickets.sort((a, b) => {
-  //     const statusA = this.ticketStatuses[a.ticketId] || 'Open';
-  //     const statusB = this.ticketStatuses[b.ticketId] || 'Open';
-  //
-  //     if (statusA === 'Close' && statusB !== 'Close') return 1;
-  //     if (statusA !== 'Close' && statusB === 'Close') return -1;
-  //     return 0;
-  //   });
-  // }
+  statusPriority: { [key: string]: number } = {
+    'Open': 1,
+    'In progress': 2,
+    'On Hold': 3,
+    'Close': 4
+  };
 
   setStatus(ticketId: number, status: string): void {
     this.ticketStatuses[ticketId] = status;
@@ -84,11 +72,9 @@ export class EmployeeWorkspaceComponent implements OnInit {
 
         // Optional: Re-sort after change
         this.assignedTickets.sort((a, b) => {
-          const statusA = a.status || 'Open';
-          const statusB = b.status || 'Open';
-          if (statusA === 'Close' && statusB !== 'Close') return 1;
-          if (statusA !== 'Close' && statusB === 'Close') return -1;
-          return 0;
+          const statusA = this.statusPriority[a.status || 'Open'] || 99;
+          const statusB = this.statusPriority[b.status || 'Open'] || 99;
+          return statusA - statusB;
         });
       },
       error: err => console.error("Failed to update status", err)

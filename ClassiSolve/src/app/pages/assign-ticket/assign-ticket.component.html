@@ -5,7 +5,7 @@
       <span class="input-group-text bg-purple text-white">
         <i class="bi bi-search"></i>
       </span>
-<!--      <input type="text" class="form-control" placeholder="Search by Predicted Ticket Category..." [(ngModel)]="searchText">-->
+      <!--      <input type="text" class="form-control" placeholder="Search by Predicted Ticket Category..." [(ngModel)]="searchText">-->
       <input type="text" class="form-control" placeholder="Search by Assignee name.." [(ngModel)]="searchText">
     </div>
   </div>
@@ -15,7 +15,7 @@
       <thead class="table-purple text-white">
       <tr>
         <th>Ticket ID</th>
-<!--        <th>Ticket Subject</th>-->
+        <!--        <th>Ticket Subject</th>-->
         <th>Predicted Ticket Category</th>
         <th>Predicted Resolution Time (hrs)</th>
         <th>Assignee</th>
@@ -25,7 +25,7 @@
       <tbody>
       <tr *ngFor="let ticket of filteredTickets">
         <td>{{ ticket.frontendId }}</td>
-<!--        <td class="text-dark fw-semibold">{{ ticket['Ticket Subject'] }}</td>-->
+        <!--        <td class="text-dark fw-semibold">{{ ticket['Ticket Subject'] }}</td>-->
         <td>{{ ticket['Predicted Ticket Type'] }}</td>
         <td>{{ ticket['Predicted Resolution Time (hrs)'] }}</td>
         <td>
@@ -37,24 +37,28 @@
               {{ emp.name }}
             </option>
           </select>
-<!--          <select class="form-select" [(ngModel)]="selectedAssignee[ticket.frontendId]">-->
-<!--            <option *ngFor="let emp of assignees[ticket.frontendId]" [ngValue]="emp.id">-->
-<!--              {{ emp.name }}-->
-<!--            </option>-->
-<!--          </select>-->
+          <!--          <select class="form-select" [(ngModel)]="selectedAssignee[ticket.frontendId]">-->
+          <!--            <option *ngFor="let emp of assignees[ticket.frontendId]" [ngValue]="emp.id">-->
+          <!--              {{ emp.name }}-->
+          <!--            </option>-->
+          <!--          </select>-->
         </td>
         <td>
           <button class="btn btn-outline-primary"
                   type="button"
                   [disabled]="saveDisabled[ticket.frontendId]"
+                  [ngClass]="{
+                    'btn-outline-primary': !saveDisabled[ticket.frontendId],
+                    'btn-primary text-white': saveDisabled[ticket.frontendId]
+                  }"
                   (click)="assign(ticket)">
             Save
           </button>
-<!--          <button class="btn btn-outline-primary"-->
-<!--                  type="button"-->
-<!--                  (click)="assign(ticket)">-->
-<!--            Save-->
-<!--          </button>-->
+          <!--          <button class="btn btn-outline-primary"-->
+          <!--                  type="button"-->
+          <!--                  (click)="assign(ticket)">-->
+          <!--            Save-->
+          <!--          </button>-->
         </td>
       </tr>
       </tbody>
