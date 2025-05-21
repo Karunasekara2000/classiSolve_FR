@@ -49,8 +49,6 @@ export class EmployeeWorkspaceComponent implements OnInit {
     this.dropdownOpen[ticketId] = !this.dropdownOpen[ticketId];
   }
 
-
-
   statusPriority: { [key: string]: number } = {
     'Open': 1,
     'In progress': 2,
